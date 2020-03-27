@@ -1,0 +1,77 @@
+body{
+    background-color: #BFB0A3;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+#dropdown{
+    margin: 5em auto;
+    width: 15em;
+}
+#dropdown ul ul{
+    margin-top: 1em;
+    box-shadow: 0 0 0.75em #9c8a76;
+}
+#dropdown>ul>li>ul{
+    display: none;
+}
+#dropdown:hover>ul>li>ul{
+    display: block;
+}
+#dropdown a{
+    text-decoration: none;
+    padding: 1em;
+    background-color: #F2F2F2;
+    color: #A6A6A6;
+    display: block;
+    transition: 0.5s;
+}
+#dropdown a:hover{
+    background-color: #D9D9D9;
+    color: #8C8C8C;
+}
+#dropdown li:first-child>a {/* нужен строгий селектор ссылок! 
+    if not=> выберутся абсолютно все ссылки после первого li(с 'Admin Sattings')
+    в обход ul>li, подчиняющимися li с 'Admin Sattings'*/
+    border-top-right-radius: 0.25em;
+    border-top-left-radius: 0.25em;
+}
+#dropdown li:last-child>a {
+    border-bottom-right-radius: 0.25em; 
+    border-bottom-left-radius: 0.25em; 
+    /* каждое св-во border-radius отдельно!
+    if not=> будет конфликт верхних радиусов
+    у  li (кот-рый является первым и последним)
+    и выйграет последний в коде, то есть "0 0"*/
+}
+#dropdown>ul>li:first-child>a{
+    box-shadow: 0 0 0.75em #9c8a76;
+}
+#dropdown>ul>li>ul>li:first-child>a::before{
+    content: "";
+    width: 0; /*???*/
+    display: block; /* превратить в блочный элемент, что бы работало transform */
+    transform: translateY(-1.96em) translateX(0.5em);
+    border: 0.5em solid #F2F2F2;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    transition: 0.5s;
+}
+#dropdown>ul>li>ul>li:first-child>a:hover::before{
+    border: 0.5em solid #D9D9D9;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+#dropdown li i{
+    float: right;
+}
+/* .palette{
+    color: #BFB0A3; 
+    color: #F2F2F2; 
+    color: #D9D9D9; 
+    color: #A6A6A6; 
+    color: #8C8C8C; 
+} */
